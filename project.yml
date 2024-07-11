@@ -1,0 +1,12 @@
+packages:
+  - name: default
+    functions:
+      - name: default
+        runtime: "nodejs:18"
+        environment:
+          GITHUB_TOKEN: "${GITHUB_TOKEN}"
+        triggers:
+          - name: get-repos-per-day
+            sourceType: scheduler
+            sourceDetails:
+              cron: "0 5 * * *"
