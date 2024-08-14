@@ -6,7 +6,9 @@ const octokit = new Octokit({
 });
 
 export default async function handler(req) {
-  return fetch("https://api.github.com/orgs/Algorithm-Arena/repos")
+  return fetch(
+    "https://api.github.com/orgs/Algorithm-Arena/repos?per_page=1000"
+  )
     .then((res) => res.json())
     .then((data) => {
       let challengeRepos = data
